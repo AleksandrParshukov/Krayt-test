@@ -1,0 +1,628 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Krayt Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+
+  <body class="page-body">
+
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="chevron">
+          <path d="M20.5332 15.9933C20.5332 16.2867 20.4265 16.5533 20.2132 16.7667L13.2799 23.4333C12.8532 23.8333 12.1866 23.8333 11.7599 23.4067C11.3599 22.98 11.3599 22.3133 11.7866 21.8867L17.9199 15.9933L11.7866 10.1C11.3599 9.69997 11.3599 9.00665 11.7599 8.57999C12.1599 8.15332 12.8532 8.15336 13.2799 8.55336L20.2132 15.22C20.4265 15.4333 20.5332 15.7 20.5332 15.9933Z"/>
+      </symbol>
+      <symbol id="arrow-prev">
+        <path d="M0.762882 15.1306L9.96696 26.3208C10.2627 26.6789 10.6323 26.8579 11.002 26.8579C11.3716 26.8579 11.7413 26.6789 12.037 26.3208C12.6284 25.6046 12.6284 24.4856 12.037 23.7694L5.34643 15.6229H26.9335C27.7468 15.6229 28.4121 14.8173 28.4121 13.8325C28.4121 12.8478 27.7468 12.0421 26.9335 12.0421H5.34643L12.037 3.89563C12.6284 3.17946 12.6284 2.06043 12.037 1.34426C11.4455 0.628086 10.5214 0.628086 9.93 1.34426L0.725904 12.5345C0.17144 13.2954 0.171455 14.4592 0.762882 15.1306Z"/>
+        <rect width="50" height="4.00195" rx="2.00098" transform="matrix(-1 0 0 1 53 11.8516)"/>
+      </symbol>
+      <symbol id="arrow-next">
+        <path d="M91.5516 15.1306L82.3475 26.3208C82.0518 26.6789 81.6821 26.8579 81.3125 26.8579C80.9428 26.8579 80.5732 26.6789 80.2775 26.3208C79.6861 25.6046 79.6861 24.4856 80.2775 23.7694L86.968 15.6229H65.3809C64.5677 15.6229 63.9023 14.8173 63.9023 13.8325C63.9023 12.8478 64.5677 12.0421 65.3809 12.0421H86.968L80.2775 3.89563C79.6861 3.17946 79.6861 2.06043 80.2775 1.34426C80.8689 0.628086 81.793 0.628086 82.3845 1.34426L91.5885 12.5345C92.143 13.2954 92.143 14.4592 91.5516 15.1306Z"/>
+        <rect x="0.314453" y="11.6396" width="88.7142" height="4.47607" rx="2.23804"/> 
+      </symbol>
+      <symbol id="instagram">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 7.80863 2 5.71294 3.05041 4.26718C3.38964 3.80026 3.80026 3.38964 4.26718 3.05041C5.71294 2 7.80863 2 12 2C16.1914 2 18.2871 2 19.7328 3.05041C20.1997 3.38964 20.6104 3.80026 20.9496 4.26718C22 5.71294 22 7.80863 22 12C22 16.1914 22 18.2871 20.9496 19.7328C20.6104 20.1997 20.1997 20.6104 19.7328 20.9496C18.2871 22 16.1914 22 12 22C7.80863 22 5.71294 22 4.26718 20.9496C3.80026 20.6104 3.38964 20.1997 3.05041 19.7328C2 18.2871 2 16.1914 2 12ZM12 6.70588C9.07632 6.70588 6.70588 9.07632 6.70588 12C6.70588 14.9237 9.07632 17.2941 12 17.2941C14.9237 17.2941 17.2941 14.9237 17.2941 12C17.2941 9.07632 14.9237 6.70588 12 6.70588ZM12 15.3088C10.1762 15.3088 8.69118 13.8238 8.69118 12C8.69118 10.1749 10.1762 8.69118 12 8.69118C13.8238 8.69118 15.3088 10.1749 15.3088 12C15.3088 13.8238 13.8238 15.3088 12 15.3088ZM18.3966 6.30883C18.3966 6.69844 18.0808 7.01427 17.6912 7.01427C17.3016 7.01427 16.9857 6.69844 16.9857 6.30883C16.9857 5.91923 17.3016 5.60339 17.6912 5.60339C18.0808 5.60339 18.3966 5.91923 18.3966 6.30883Z"/>
+      </symbol>
+      <symbol id="youtube">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3903 4.11407C22.4182 4.39093 23.2288 5.20135 23.5055 6.22948C24.0197 8.1074 23.9999 12.0218 23.9999 12.0218C23.9999 12.0218 23.9999 15.9163 23.5057 17.7944C23.2288 18.8223 22.4184 19.6329 21.3903 19.9096C19.5122 20.404 12 20.404 12 20.404C12 20.404 4.50731 20.404 2.60961 19.89C1.58148 19.6131 0.771054 18.8025 0.4942 17.7746C0 15.9163 0 12.002 0 12.002C0 12.002 0 8.1074 0.4942 6.22948C0.770871 5.20153 1.60125 4.37115 2.60943 4.09448C4.48753 3.6001 11.9998 3.6001 11.9998 3.6001C11.9998 3.6001 19.5122 3.6001 21.3903 4.11407ZM15.8549 12.0021L9.60788 15.6001V8.40404L15.8549 12.0021Z"/>
+      </symbol>
+      <symbol id="facebook">
+        <path d="M17.563 1.00458L14.7857 1C11.6655 1 9.64916 3.12509 9.64916 6.41423V8.91055H6.85674C6.61544 8.91055 6.42004 9.1115 6.42004 9.35937V12.9763C6.42004 13.2241 6.61567 13.4249 6.85674 13.4249H9.64916V22.5514C9.64916 22.7993 9.84455 23 10.0859 23H13.7292C13.9705 23 14.1659 22.799 14.1659 22.5514V13.4249H17.4308C17.6721 13.4249 17.8675 13.2241 17.8675 12.9763L17.8689 9.35937C17.8689 9.24036 17.8228 9.12638 17.741 9.04215C17.6592 8.95793 17.5478 8.91055 17.432 8.91055H14.1659V6.79439C14.1659 5.77727 14.4018 5.26094 15.6916 5.26094L17.5625 5.26025C17.8036 5.26025 17.999 5.0593 17.999 4.81166V1.45317C17.999 1.20576 17.8038 1.00504 17.563 1.00458Z"/>      
+      </symbol>
+
+
+    </svg>
+
+    <header class="page-header">
+      <h1 class="page-header__title">Frispes.</h1>
+
+      <nav class="page-header__nav main-nav">
+        <ul class="main-nav__list site-list">
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Home</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Workspace</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Service</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Events</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Reviews</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="#">Contact Us</a>
+          </li>
+        </ul>
+
+        <ul class="main-nav__list user-list">
+          <li class="user-list__item">
+            <a class="user-list__link user-list__link--login" href="#">Log In</a>
+          </li>
+          <li class="user-list__item">
+            <a class="user-list__link user-list__link--signin" href="#">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page-main">
+      <section class="introducing">
+        <h2 class="introducing__title title">Introducing</h2>
+
+        <div class="introducing__content">
+          <p class="introducing__caption caption">
+            <span class="introducing__highlighted">Revolutionary</span> 
+            co-working space to realize your innovation
+          </p>
+  
+          <p class="introducing__text">
+            In frispes, we spearhead new initiatives and provide mentorship to a new startup, and help grow their opportunities in key local, regional and global markets
+          </p>
+        </div>
+
+        <div class="introducing__slider intro-slider slider">
+          <ul class="intro-slider__list">
+            <li class="intro-slider__item">
+              <img class="intro-slider__img" src="./img/introducing-img.jpg" width="1440" height="897" alt="Tables before window">
+            </li>
+          </ul>
+
+          <ul class="intro-slider__nav slider__nav">
+            <li class="intro-slider__nav-item intro-slider__nav-item--current">
+              <button class="intro-slider__button intro-slider__button--current" type="button"></button>
+            </li>
+            <li class="intro-slider__nav-item">
+              <button class="intro-slider__button" type="button"></button>
+            </li>
+            <li class="intro-slider__nav-item">
+              <button class="intro-slider__button" type="button"></button>
+            </li>
+            <li class="intro-slider__nav-item">
+              <button class="intro-slider__button" type="button"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="spaces">
+        <h2 class="spaces__title visually-hidden">Our Spaces</h2>
+
+        <p class="spaces__caption caption">Our Spaces</p>
+
+        <p class="spaces__text">
+          Our space is designed to give you a different experience when working with your team or personally
+        </p>
+
+        <div class="spaces__slider spaces-slider slider">
+          <div class="spaces-slider__arrows">
+            <button class="slider__arrow slider__arrow--prev" type="button">
+              <svg fill="#9A9A9A" width="53" height="26">
+                <use xlink:href="#arrow-prev"></use>
+              </svg>
+            </button>
+            <button class="slider__arrow slider__arrow--next" type="button">
+              <svg fill="#FF5722" width="92" height="26">
+                <use xlink:href="#arrow-next"></use>
+              </svg>
+            </button>
+          </div>
+
+          <ul class="spaces-slider__list">
+            <li class="spaces-slider__item">
+              <div class="spaces-slider__wrapper">
+                <img class="spaces-slider__img" src="./img/spaces-img1.jpg" width="350" height="419" alt="A group of people at work ">
+                <a class="spaces-slider__link" href="#">
+                  <svg class="spaces-slider__chevron" width="32" height="32">
+                    <use xlink:href="#chevron"></use>
+                  </svg>
+                </a>
+              </div>
+              <p class="spaces-slider__sub">Working with team</p>
+            </li>
+            <li class="spaces-slider__item spaces-slider__item">
+              <div class="spaces-slider__wrapper spaces-slider__wrapper--text">
+                <p class="spaces-slider__title">Private Space</p>
+                <p class="spaces-slider__text">
+                  Comfortable space, Full speed wifi, 
+                  Free coffe & Snack <br> and many more
+                </p>
+                <a class="spaces-slider__link spaces-slider__link" href="#">
+                  <span class="spaces-slider__link-text">Check avaibility</span>
+                  <svg class="spaces-slider__chevron" width="32" height="32">
+                    <use xlink:href="#chevron"></use>
+                  </svg>
+                </a>
+              </div>
+            </li>
+            <li class="spaces-slider__item">
+              <div class="spaces-slider__wrapper">
+                <img class="spaces-slider__img" src="./img/spaces-img2.jpg" width="350" height="419" alt="One person at work">
+                <a class="spaces-slider__link" href="#">
+                  <svg class="spaces-slider__chevron" width="32" height="32">
+                    <use xlink:href="#chevron"></use>
+                  </svg>
+                </a>
+              </div>
+              <p class="spaces-slider__sub">Custom Office</p>
+            </li>
+          </ul>
+
+          <ul class="spaces-slider__nav slider__nav">
+            <li class="spaces-slider__nav-item">
+              <button class="spaces-slider__button spaces-slider__button--current" type="button"></button>
+            </li>
+            <li class="spaces-slider__nav-item">
+              <button class="spaces-slider__button" type="button"></button>
+            </li>
+            <li class="spaces-slider__nav-item">
+              <button class="spaces-slider__button" type="button"></button>
+            </li>
+            <li class="spaces-slider__nav-item">
+              <button class="spaces-slider__button" type="button"></button>
+            </li>
+          </ul>
+
+          <p class="spaces-slider__count"><span class="spaces-slider__current">01</span> / 04</p>
+        </div>
+        
+      </section>
+
+      <section class="why-frispes">
+        <div class="why-frispes__subject">
+          <h2 class="why-frispes__title title">Why Frispes</h2>
+
+          <p class="why-frispes__caption caption">We revolutionize your workspace</p>
+
+          <p class="why-frispes__text">
+            With a decade of insights and expertise, we're decided to reimagine co-working space, designed to help a new startup grow up and realize their ideas so they can give a positive impacts on many people
+          </p>
+        </div>
+
+        <ul class="why-frispes__features features">
+          <li class="features__item">
+            <img class="" src="./img/meeting-room.svg" width="32" height="32" alt="Meeting rooms icon">
+            <p class="features__value">500+</p>
+            <p class="features__name">Meeting rooms</p>
+          </li>
+          <li class="features__item">
+            <img class="features__icon" src="./img/circus.svg" width="32" height="32" alt="Event spaces icon">
+            <p class="features__value">100+</p>
+            <p class="features__name">Event spaces</p>
+          </li>
+          <li class="features__item">
+            <img class="features__icon" src="./img/flag.svg" width="32" height="32" alt="Countries icon">
+            <p class="features__value">60+</p>
+            <p class="features__name">Countries</p>
+          </li>
+          <li class="features__item">
+            <img class="features__icon" src="./img/wifi.svg" width="32" height="32" alt="Internet speed icon">
+            <p class="features__value">500 Mbps</p>
+            <p class="features__name">Internet speed</p>
+          </li>
+          <li class="features__item">
+            <img class="features__icon" src="./img/user.svg" width="32" height="32" alt="Startup mentors icon">
+            <p class="features__value">5K+</p>
+            <p class="features__name">Startup mentors</p>
+          </li>
+          <li class="features__item">
+            <img class="features__icon" src="./img/users.svg" width="32" height="32" alt="Communities inside icon">
+            <p class="features__value">200+</p>
+            <p class="features__name">Communities inside</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="facilities">
+        <h2 class="facilities__title title">Our Facilities</h2>
+
+        <p class="facilities__caption caption">All facilities are designed to meet all your needs</p>
+
+        <ul class="facilities__nav">
+          <li class="facilities__item">
+            <a class="facilities__link" href="#">Spacious parking area</a>
+          </li>
+          <li class="facilities__item">
+            <a class="facilities__link" href="#">Comfortable spaces</a>
+          </li>
+          <li class="facilities__item facilities__item--current">
+            <a class="facilities__link facilities__link--current">Cozy cafe</a>
+          </li>
+          <li class="facilities__item">
+            <a class="facilities__link" href="#">Child playground</a>
+          </li>
+          <li class="facilities__item">
+            <a class="facilities__link" href="#">Outdoor spaces</a>
+          </li>
+        </ul>
+
+        <img class="facilities__link" src="./img/facilities-img.jpg" width="729" height="453" alt="Bar counter">
+      </section>
+
+      <section class="gallery">
+        <h2 class="gallery__title title">Frispes gallery</h2>
+
+        <p class="gallery__caption caption">Immersive beautiful <br> co-working space gallery</p>
+
+        <div class="gallery__slider gallery-slider slider">
+          <div class="gallery-slider__arrows">
+            <button class="slider__arrow slider__arrow--prev" type="button">
+              <svg fill="#9A9A9A" width="53" height="26">
+                <use xlink:href="#arrow-prev"></use>
+              </svg>
+            </button>
+            <button class="slider__arrow slider__arrow--next" type="button">
+              <svg fill="#FF5722" width="92" height="26">
+                <use xlink:href="#arrow-next"></use>
+              </svg>
+            </button>
+          </div>
+          
+          <ul class="gallery-slider__list">
+            <li class="gallery-slider__item">
+              <img class="gallery-slider__img" src="./img/gallery-img1.jpg" width="350" height="350" alt="Co-working space in hall">
+            </li>
+            <li class="gallery-slider__item">
+              <img class="gallery-slider__img gallery-slider__img--current" src="./img/gallery-img2.jpg" width="445" height="606" alt="Co-working space in lobby">
+            </li>
+            <li class="gallery-slider__item">
+              <img class="gallery-slider__img" src="./img/gallery-img3.jpg" width="350" height="350" alt="Co-working space in pavilion">
+            </li>
+            <li class="gallery-slider__item">
+              <img class="gallery-slider__img" src="./img/gallery-img4.jpg" width="350" height="350" alt="Co-working space in office">
+            </li>
+          </ul>
+
+        </div>       
+      </section>
+
+      <section class="who-uses">
+        <h2 class="who-uses__title visually-hidden">Who uses Frispes?</h2>
+
+        <p class="who-uses__caption caption">Who uses Frispes?</p>        
+        
+        <p class="who-uses__text">
+          Big brands, small bussiness, new startuo and inividuals
+        </p>
+
+        <ul class="who-uses__list">
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/google.png" width="120" height="40" alt="Google">
+          </li>
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/tokopedia.png" width="180" height="39" alt="Tokopedia">
+          </li>
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/upwork.png" width="120" height="35" alt="UpWork">
+          </li>
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/microsoft.png" width="170" height="36" alt="Microsoft">
+          </li>
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/shopify.png" width="146" height="46" alt="Shopify">
+          </li>
+          <li class="who-uses__item">
+            <img class="who-uses__img" src="./img/stripe.png" width="140" height="67" alt="Stripe">
+          </li>
+        </ul> 
+      </section>
+
+      <section class="reviews">
+        <h2 class="reviews__title title">Reviews</h2>
+
+        <p class="reviews__caption caption">What our customers are saying</p>
+
+        <div class="reviews__slider reviews-slider slider">
+          <div class="reviews-slider__arrows">
+            <button class="slider__arrow slider__arrow--prev" type="button">
+              <svg fill="#9A9A9A" width="53" height="26">
+                <use xlink:href="#arrow-prev"></use>
+              </svg>
+            </button>
+            <button class="slider__arrow slider__arrow--next" type="button">
+              <svg fill="#FF5722" width="92" height="26">
+                <use xlink:href="#arrow-next"></use>
+              </svg>
+            </button>
+          </div>
+
+          <ul class="reviews-slider__list">
+            <li class="reviews-slider__item">
+              <p class="reviews-slider__text">
+                Our team has been working at frispes for almost 2 months because our office still closed. 
+                During working at frispes, we feel a new experience, we can feel working with a beautiful, 
+                modern, and comfortable space. And cozy cafe with high-speed internet  in there. 
+                Thank you for frispes and team.
+              </p>
+              <div class="reviews-slider__author author">
+                <img class="author__avatar" src="./img/avatars/pedro-ibanez.jpg" width="56" height="56" alt="Фото автора">
+                <p class="author__name author__name--light">Pedro Ibanez</p>
+                <p class="author__position author__name--light">UI Designer at Google</p>
+              </div>
+            </li>
+            <li class="reviews-slider__item">
+              <p class="reviews-slider__text">
+                The high-speed internet at frispes was so amazing. 
+                I can get best experience when running video call with my clients. 
+                Frispes has spacious and safe parking area, that’s what i need 
+                because i used to work as freelancer for a long time.
+              </p>
+              <div class="reviews-slider__author author">
+                <img class="author__avatar" src="./img/avatars/raymond-thual.jpg" width="56" height="56" alt="Фото автора">
+                <p class="author__name author__name--light">Raymond Thual</p>
+                <p class="author__position author__name--light">Professional Freelancer</p>
+              </div>
+            </li>
+            <li class="reviews-slider__item">
+              <p class="reviews-slider__text">
+                Just three words : Frispes is Awesome!
+              </p>
+              <div class="reviews-slider__author author">
+                <img class="author__avatar" src="./img/avatars/yuli-berlian.jpg" width="56" height="56" alt="Фото автора">
+                <p class="author__name author__name--light">Yuli Berlian</p>
+                <p class="author__position author__name--light">IOS Dev at Tokopedia</p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="reviews-slider__nav slider__nav">
+            <li class="reviews-slider__nav-item">
+              <button class="reviews-slider__button reviews-slider__button--current" type="button"></button>
+            </li>
+            <li class="reviews-slider__nav-item">
+              <button class="reviews-slider__button" type="button"></button>
+            </li>
+            <li class="reviews-slider__nav-item">
+              <button class="reviews-slider__button" type="button"></button>
+            </li>
+            <li class="reviews-slider__nav-item">
+              <button class="reviews-slider__button" type="button"></button>
+            </li>
+          </ul>
+        </div>       
+      </section>
+
+      <section class="faq">
+        <h2 class="faq__title visually-hidden">Frequently asked questions</h2>
+
+        <p class="faq__caption caption">Find the answers to anything you need in our Help Center</p>
+
+        <ul class="faq__list">
+          <li class="faq__item">
+            <p class="faq__question">How do I know if a space is available?</p>
+            <a class="faq__answer" href="#">
+              <svg class="faq__chevron" width="32" height="32">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="faq__item faq__item--accent">
+            <p class="faq__question">How do i book a space?</p>
+            <a class="faq__answer faq__answer--accent" href="#">
+              <svg class="faq__chevron faq__chevron--accent" width="32" height="32">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="faq__item">
+            <p class="faq__question">How do reviews work?</p>
+            <a class="faq__answer" href="#">
+              <svg class="faq__chevron" width="32" height="32">
+                <use xlink:href="#chevron"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <a class="faq__more more-link" href="#">
+          More questions
+          <svg class="more-link__chevron" width="32" height="32">
+            <use xlink:href="#chevron"></use>
+          </svg>
+        </a>
+
+      </section>
+
+      <section class="news">
+        <div class="news__wrapper">
+          <h2 class="news__title visually-hidden">News</h2>
+
+          <p class="news__caption caption">News, events and insights for you</p>
+
+          <a class="news__more more-link" href="#">
+            See more          
+            <svg class="more-link__chevron" width="32" height="32">
+              <use xlink:href="#chevron"></use>
+            </svg>
+          </a>
+
+
+          <ul class="news__list">
+            <li class="news__item news__item--detailed">
+              <a class="news__link news__link--detailed" href="#">             
+                <img class="news__img news__img--detailed" src="./img/news-img1.jpg" width="350" height="320" alt="The conference">
+                <p class="news__topic news__topic--detailed">Google I / O 2020 news update</p>
+                <p class="news__text">
+                  Out of concern for the health and safety of our developers, 
+                  employees, and local communities — and in line with recent ...
+                </p>
+                <div class="news__author author">
+                  <img class="author__avatar" src="./img/avatars/sundar-pichai.jpg" width="56" height="56" alt="Фото автора">
+                  <p class="author__name author__name--dark">Sundar pichai</p>
+                  <p class="author__position author__name--dark">CEO at Google</p>
+                </div>
+              </a>
+            </li>
+            <li class="news__item">
+              <a class="news__link" href="#">             
+                <img class="news__img" src="./img/news-img2.jpg" width="350" height="204" alt="Laptop">
+                <p class="news__topic">Minimal workspace for inspirations</p>
+                <p class="news__signature">Anthony Masional</p>
+              </a>
+            </li>
+            <li class="news__item">
+              <a class="news__link" href="#">             
+                <img class="news__img" src="./img/news-img3.jpg" width="350" height="204" alt="A man reading a book">
+                <p class="news__topic">Does productivity increase when working remotely ? </p>
+                <p class="news__signature">Franck Martin</p>
+              </a>
+            </li>
+            <li class="news__item">
+              <a class="news__link" href="#">             
+                <img class="news__img" src="./img/news-img4.jpg" width="350" height="204" alt="Colleagues discuss the project">
+                <p class="news__topic">Morning routine to boost your mood</p>
+                <p class="news__signature">Elizabeth Swan</p>
+              </a>
+            </li>
+            <li class="news__item">
+              <a class="news__link" href="#">             
+                <img class="news__img" src="./img/news-img5.jpg" width="350" height="204" alt="Co-working space">
+                <p class="news__topic">5+ tips to find comfortable <br> co-working space</p>
+                <p class="news__signature">Mykola Ilschenko</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="page-footer__wrapper">
+        <div class="page-footer__summary summary">
+          <p class="summary__title">Frispes</p>
+          <p class="summary__text">
+            We offer comfortable spaces, cozy cafe, high-speed internet, spacious 
+            parking area and many more for your best workspaces and meetings
+          </p>
+
+          <ul class="summary__social social">
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="#facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <nav class="page-footer__nav footer-nav">
+          <div class="footer-nav__wrapper">
+            <p class="footer-nav__category">Spaces</p>
+
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Co-working spaces</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Meeting rooms</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Event spaces</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Child playground</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Cafe & resto</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav__wrapper">
+            <p class="footer-nav__category">Company</p>
+
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">About Us</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Pricing</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Careers</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Press</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav__wrapper">
+            <p class="footer-nav__category">Support</p>
+
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">FAQs</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Privacy Policy</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">Help</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="footer-nav__wrapper">
+            <p class="footer-nav__category">Contact Us</p>
+
+            <ul class="footer-nav__list">
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="mailto:Hello@frispes.com">E.&nbsp;&nbsp;Hello@frispes.com</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="#">A.&nbsp;&nbsp;Jalan Jayakatwang  No.301
+                  Ngasem, Kediri</a>
+              </li>
+              <li class="footer-nav__item">
+                <a class="footer-nav__link" href="tel:+6282334670000">P.&nbsp;&nbsp;(+62) 82334670000</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </body> 
+</html>

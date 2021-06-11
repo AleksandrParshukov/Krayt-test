@@ -1,0 +1,36 @@
+.features {
+  list-style: none;
+  padding: 35px 0 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 30px;
+}
+
+.features__item {
+  padding: 0 0 0 9px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content min-content;
+  grid-gap: 8px 24px;
+  align-items: center;
+}
+
+.features__value {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 41px;
+  color: @basic-blue;
+  margin: 0;
+}
+
+.features__name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: @basic-grey;
+  margin: 0;
+  grid-column-start: 2;
+}

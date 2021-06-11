@@ -1,0 +1,18 @@
+.title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  width: fit-content;
+  margin: 0;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 73px;
+    height: 2px;
+    background-color: @basic-black;
+    position: absolute;
+    top: 50%;
+    right: -87px;
+  }
+}
